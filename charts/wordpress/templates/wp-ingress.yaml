@@ -6,7 +6,9 @@ metadata:
   namespace: {{ .Release.Namespace }}
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
+  ingressClassName: {{ .Values.wordpress.ingress.ingressClassName }}
   rules:
     - host: {{ .Values.wordpress.ingress.host }}
       http:
@@ -18,7 +20,8 @@ spec:
                 name: {{ .Release.Name }}-wp
                 port:
                   number: 80
-      tls:
-        - hosts:
-            - {{ .Values.wordpress.ingress.host }}
+  tls:
+  - hosts:
+    - {{ .Values.wordpress.ingress.host }}
+    secretName: {{ .Release.Name }}-tls
 {{- end }}
