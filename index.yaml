@@ -3,6 +3,16 @@ entries:
   wordpress:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2024-12-07T19:21:27.050112754Z"
+    description: A Helm chart for Kubernetes
+    digest: b5bccede2c47306596ecb0bb337d8a80463d2f9e46b27abfcbe719e3a8d4bd34
+    name: wordpress
+    type: application
+    urls:
+    - https://github.com/OpsSavvy/helmcharts/releases/download/wordpress-0.1.1/wordpress-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2024-12-07T18:52:36.968068729Z"
     description: A Helm chart for Kubernetes
     digest: 2f244ad56cb1d0ef5e656c5ea9d2da21783e7dd15259dbdef858a2418098613a
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://github.com/OpsSavvy/helmcharts/releases/download/wordpress-0.1.0/wordpress-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-07T18:52:36.968080962Z"
+generated: "2024-12-07T19:21:27.050122593Z"
