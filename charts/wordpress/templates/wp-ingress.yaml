@@ -1,0 +1,24 @@
+{{- if .Values.wordpress.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-wp
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: {{ .Values.wordpress.ingress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Release.Name }}-wp
+                port:
+                  number: 80
+      tls:
+        - hosts:
+            - {{ .Values.wordpress.ingress.host }}
+{{- end }}
